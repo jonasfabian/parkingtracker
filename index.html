@@ -4,17 +4,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>parkingtracker.ch</title>
+  <title>Zurich Parking Tracker</title>
   <link rel="stylesheet" href="styles/styles.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
 </head>
 
 <body>
 
+  <div id="loading-spinner">
+      <div class="spinner"></div>
+  </div>
+
   <h1>🚗 Zurich Parking Status</h1>
   <p>Live updates of available parking spaces in Zurich.</p>
+
+  <div id="map" style="height: 500px; width: 100%; margin-bottom: 20px;"></div>
   <div id="parking-container">Loading...</div>
 
-  <script src="script.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+  <script type="module" src="scripts/script.js"></script>
 
 </body>
 
