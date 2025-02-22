@@ -1,4 +1,5 @@
 # Zurich Parking Tracker 🚗
+
 A lightweight web app that displays real-time parking availability in Zurich. Fetches data from [https://api.parkendd.de/Zuerich](https://api.parkendd.de/Zuerich) and updates every 30 seconds.
 
 ### Features:
