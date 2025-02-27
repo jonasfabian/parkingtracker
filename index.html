@@ -77,35 +77,7 @@
 
   <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
   <script type="module" src="scripts/script.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const themeToggle = document.getElementById('theme-toggle');
-      const icon = themeToggle.querySelector('i');
-      
-      const savedTheme = localStorage.getItem('theme');
-      if (savedTheme === 'dark') {
-        document.body.classList.add('dark-mode');
-        icon.classList.replace('fa-moon', 'fa-sun');
-      }
-      
-      themeToggle.addEventListener('click', () => {
-        document.body.classList.toggle('dark-mode');
-        
-        if (document.body.classList.contains('dark-mode')) {
-          localStorage.setItem('theme', 'dark');
-          icon.classList.replace('fa-moon', 'fa-sun');
-        } else {
-          localStorage.setItem('theme', 'light');
-          icon.classList.replace('fa-sun', 'fa-moon');
-        }
-      });
-      
-      const refreshButton = document.getElementById('refresh-button');
-      refreshButton.addEventListener('click', () => {
-        window.loadData();
-      });
-    });
-  </script>
+  <script type="module" src="scripts/theme.js"></script>
 </body>
 
 </html>
