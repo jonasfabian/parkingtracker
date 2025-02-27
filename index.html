@@ -24,25 +24,88 @@
   <meta name="twitter:title" content="Zurich Parking Tracker: Live Parking Status">
   <meta name="twitter:description" content="Stay ahead of the parking game in Zurich with live updates on parking availability. Find free parking spots in real time.">
 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
   <link rel="stylesheet" href="styles/styles.css">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
 </head>
 
 <body>
-
   <div id="loading-spinner">
-      <div class="spinner"></div>
+    <div class="spinner"></div>
   </div>
 
-  <h1>🚗 Zurich Parking Status</h1>
-  <p>Live updates of available parking spaces in Zurich.</p>
+  <header>
+    <div class="container header-content">
+      <div>
+        <a href="/" class="logo">
+          <span class="logo-icon"><i class="fas fa-parking"></i></span>
+          <h1 class="logo-text">Zurich Parking Tracker</h1>
+        </a>
+        <p class="subtitle">Live updates of available parking spaces across Zurich city.</p>
+      </div>
+      <div class="controls">
+        <button id="refresh-button" class="refresh-btn">
+          <i class="fas fa-sync-alt"></i>
+          Refresh Now
+        </button>
+        <button id="theme-toggle" class="theme-toggle">
+          <i class="fas fa-moon"></i>
+        </button>
+      </div>
+    </div>
+  </header>
 
-  <div id="map" style="height: 500px; width: 100%; margin-bottom: 20px;"></div>
-  <div id="parking-container">Loading...</div>
+  <main class="container">
+    <div id="last-updated" class="last-updated">
+      <i class="fas fa-clock"></i>
+      <span>Last updated: checking...</span>
+    </div>
+
+    <div class="map-container">
+      <div id="map"></div>
+    </div>
+
+    <div id="parking-container">
+      <div class="parking-card">
+        <div class="card-header">
+          <h2 class="parking-name">Loading parking data...</h2>
+        </div>
+      </div>
+    </div>
+  </main>
 
   <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
   <script type="module" src="scripts/script.js"></script>
-
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const themeToggle = document.getElementById('theme-toggle');
+      const icon = themeToggle.querySelector('i');
+      
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'dark') {
+        document.body.classList.add('dark-mode');
+        icon.classList.replace('fa-moon', 'fa-sun');
+      }
+      
+      themeToggle.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+        
+        if (document.body.classList.contains('dark-mode')) {
+          localStorage.setItem('theme', 'dark');
+          icon.classList.replace('fa-moon', 'fa-sun');
+        } else {
+          localStorage.setItem('theme', 'light');
+          icon.classList.replace('fa-sun', 'fa-moon');
+        }
+      });
+      
+      const refreshButton = document.getElementById('refresh-button');
+      refreshButton.addEventListener('click', () => {
+        window.loadData();
+      });
+    });
+  </script>
 </body>
 
 </html>

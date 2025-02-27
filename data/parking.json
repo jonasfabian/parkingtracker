@@ -1,0 +1,570 @@
+[
+    {
+      "parking_name": "Parkhaus Urania",
+      "address": "Uraniastrasse 3, 8001 Zürich",
+      "pricing_details": {
+        "standard_rates": "CHF 2.00/30min, CHF 3.00/45min, CHF 4.00/1h, then CHF 1.00 per 12min beyond 1h",
+        "daily_max": "CHF 45.00",
+        "night_rate": "CHF 2.00 per hour (22:00 - 06:00)",
+        "sunday_holiday_rate": "CHF 2.00 per hour",
+        "lost_ticket_fee": "CHF 50.00"
+      },
+      "opening_hours": "24 hours, 7 days (open 365 days)",
+      "payment_methods": ["Cash", "Twint", "Maestro", "Postcard", "Mastercard", "Visa", "American Express", "Diners Club", "JCB", "ParkingPay", "V Pay"],
+      "maximum_parking_duration": "No limit (daily rates apply; long-term parking available via subscription)",
+      "height_restrictions": "2.10 m",
+      "special_amenities": ["Restrooms", "24/7 surveillance", "Covered parking", "Elevator", "EV charging stations", "Guidance system"],
+      "operator_contact": {
+        "operator": "Parking Zürich AG",
+        "address": "Reitergasse 9, 8004 Zürich",
+        "phone": "+41 44 229 50 50",
+        "email": "info@parkingzuerichag.ch",
+        "website": "https://www.parkingzuerich.ch/parkhaeuser/parkhaus-urania/"
+      }
+    },
+    {
+      "parking_name": "Parkhaus Hohe Promenade",
+      "address": "Rämistrasse 22a, 8001 Zürich",
+      "pricing_details": {
+        "standard_rates": "CHF 2.00/30min, CHF 3.00/45min, CHF 4.00/1h, then CHF 1.00 per 12min beyond 1h",
+        "daily_max": "CHF 45.00",
+        "night_rate": "CHF 2.00 per hour (22:00 - 06:00)",
+        "sunday_holiday_rate": "CHF 2.00 per hour",
+        "lost_ticket_fee": "CHF 50.00"
+      },
+      "opening_hours": "24 hours daily",
+      "payment_methods": ["Cash", "Twint", "Maestro", "Postcard", "Mastercard", "Visa", "American Express", "Diners Club", "JCB", "V Pay"],
+      "maximum_parking_duration": "No limit",
+      "height_restrictions": "2.10 m",
+      "special_amenities": ["95 XXL large parking spaces", "Restrooms", "Surveillance", "Covered", "Elevator", "Direct pedestrian access to Stadelhofen station"],
+      "operator_contact": {
+        "operator": "Parking Zürich AG",
+        "address": "Reitergasse 9, 8004 Zürich",
+        "phone": "+41 44 229 50 50",
+        "email": "info@parkingzuerichag.ch",
+        "website": "https://www.parkingzuerich.ch/parkhaeuser/parkhaus-hohe-promenade/"
+      }
+    },
+    {
+      "parking_name": "Parkhaus Hauptbahnhof (City Parking)",
+      "address": "Sihlquai 41, 8005 Zürich",
+      "pricing_details": {
+        "standard_rates": "CHF 2.00/30min, CHF 3.00/45min, CHF 4.00/1h, then CHF 1.00 per 12min beyond 1h",
+        "daily_max": "CHF 45.00",
+        "night_rate": "CHF 2.00 per hour (22:00 - 06:00)",
+        "sunday_holiday_rate": "CHF 2.00 per hour",
+        "lost_ticket_fee": "CHF 50.00"
+      },
+      "opening_hours": "24 hours daily",
+      "payment_methods": ["Cash", "Twint", "Maestro", "Postcard", "Mastercard", "Visa", "American Express", "Diners Club", "JCB", "V Pay"],
+      "maximum_parking_duration": "No limit",
+      "height_restrictions": "2.00 m",
+      "special_amenities": ["Gas station and car wash on site", "24/7 surveillance", "Covered", "Elevator", "EV charging (17 charging points)", "Guidance system", "Disabled parking (spaces #101, #217)", "24/7 help intercom"],
+      "operator_contact": {
+        "operator": "Parking Zürich AG",
+        "address": "Reitergasse 9, 8004 Zürich",
+        "phone": "+41 44 229 50 50",
+        "email": "info@parkingzuerichag.ch",
+        "website": "https://www.parkingzuerich.ch/parkhaeuser/parkhaus-hauptbahnhof/"
+      }
+    },
+    {
+      "parking_name": "Parkhaus Helvetiaplatz",
+      "address": "Stauffacherstrasse 41, 8004 Zürich",
+      "pricing_details": {
+        "standard_rates": "CHF 2.00/30min, CHF 1.00 each additional 15min",
+        "daily_max": "CHF 30.00",
+        "night_rate": "CHF 1.00 per hour (22:00 - 07:00)",
+        "sunday_holiday_rate": "CHF 1.00 per hour",
+        "lost_ticket_fee": "CHF 50.00"
+      },
+      "opening_hours": "24 hours daily",
+      "payment_methods": ["Cash", "Twint", "Maestro", "Postcard", "Mastercard", "Visa", "ParkingPay", "SwissPass", "V Pay"],
+      "maximum_parking_duration": "No limit",
+      "height_restrictions": "2.00 m",
+      "special_amenities": ["Surveillance", "Covered", "Elevator", "Disabled parking", "Mobile phone coverage", "24/7 help intercom"],
+      "operator_contact": {
+        "operator": "Parking Zürich AG",
+        "address": "Reitergasse 9, 8004 Zürich",
+        "phone": "+41 44 229 50 50",
+        "email": "info@parkingzuerichag.ch",
+        "website": "https://www.parkingzuerich.ch/parkhaeuser/parkhaus-helvetiaplatz/"
+      }
+    },
+    {
+      "parking_name": "Parkhaus Zürichhorn",
+      "address": "Bellerivestrasse 160, 8008 Zürich",
+      "pricing_details": {
+        "standard_rates": "CHF 1.00/1h, CHF 2.00/2h, CHF 4.00/4h, CHF 8.00/8h",
+        "daily_max": "CHF 25.00",
+        "night_rate": "CHF 0.50 per hour (20:00 - 08:00)",
+        "sunday_holiday_rate": "CHF 0.50 per hour",
+        "lost_ticket_fee": "CHF 50.00"
+      },
+      "opening_hours": "24 hours daily",
+      "payment_methods": ["Cash", "Twint", "Maestro", "Postcard", "Mastercard", "Visa"],
+      "maximum_parking_duration": "No limit",
+      "height_restrictions": "2.00 m",
+      "special_amenities": ["Surveillance", "Covered", "Disabled parking", "Park & Ride nearby"],
+      "operator_contact": {
+        "operator": "Parking Zürich AG",
+        "address": "Reitergasse 9, 8004 Zürich",
+        "phone": "+41 44 229 50 50",
+        "email": "info@parkingzuerichag.ch"
+      }
+    },
+    {
+      "parking_name": "Parkhaus Feldegg",
+      "address": "Feldeggstrasse 49, 8008 Zürich",
+      "pricing_details": {
+        "standard_rates": "CHF 2.50/1h, CHF 4.00/1.5h, CHF 5.50/2h, then CHF 1.50 each additional 30min",
+        "daily_max": "CHF 25.00",
+        "night_rate": "CHF 1.50 per hour (20:00 - 08:00)",
+        "sunday_holiday_rate": "CHF 1.50 per hour",
+        "lost_ticket_fee": "CHF 50.00"
+      },
+      "opening_hours": "24 hours daily",
+      "payment_methods": ["Cash", "Card (credit/debit)"],
+      "maximum_parking_duration": "No limit",
+      "height_restrictions": "2.00 m",
+      "special_amenities": ["Surveillance", "Covered", "Guidance system"],
+      "operator_contact": {
+        "operator": "Parking Zürich AG",
+        "phone": "+41 44 229 50 50"
+      }
+    },
+    {
+      "parking_name": "Parkhaus Dorflinde",
+      "address": "Baumackerstrasse 18, 8050 Zürich",
+      "pricing_details": {
+        "standard_rates": "CHF 0.50/30min (CHF 1.50/1h)",
+        "daily_max": "CHF 15.00",
+        "night_rate": "CHF 0.50 per hour",
+        "sunday_holiday_rate": "CHF 0.50 per hour",
+        "lost_ticket_fee": "CHF 50.00"
+      },
+      "opening_hours": "24 hours daily",
+      "payment_methods": ["Cash", "Card"],
+      "maximum_parking_duration": "No limit",
+      "height_restrictions": "2.00 m",
+      "special_amenities": ["Surveillance", "Covered", "Disabled parking"],
+      "operator_contact": {
+        "operator": "Parking Zürich AG",
+        "phone": "+41 44 229 50 50"
+      }
+    },
+    {
+      "parking_name": "Parkhaus Stettbach",
+      "address": "Pfingstweidstrasse 1, 8600 Dübendorf (Stettbach)",
+      "pricing_details": {
+        "standard_rates": "CHF 0.50/1h",
+        "daily_max": "CHF 25.00",
+        "night_rate": "CHF 0.50 per hour",
+        "sunday_holiday_rate": "CHF 0.50 per hour",
+        "lost_ticket_fee": "CHF 50.00"
+      },
+      "opening_hours": "Mon-Thu 05:00-01:00; Fri-Sun & holidays: 24h",
+      "payment_methods": ["Cash", "Card"],
+      "maximum_parking_duration": "No limit",
+      "height_restrictions": "2.00 m",
+      "special_amenities": ["Park & Ride (discount with transit ticket)", "Surveillance", "Covered"],
+      "operator_contact": {
+        "operator": "Parking Zürich AG",
+        "phone": "+41 44 229 50 50"
+      }
+    },
+    {
+      "parking_name": "Parkhaus Stettbach P+R",
+      "address": "Pfingstweidstrasse 1, 8600 Dübendorf",
+      "pricing_details": {
+        "p+r_rate": "CHF 15.00 per day with valid public transport ticket"
+      },
+      "opening_hours": "Same as Parkhaus Stettbach (accessible during service hours)",
+      "payment_methods": ["Cash", "Card"],
+      "maximum_parking_duration": "Multi-day parking for commuters allowed",
+      "height_restrictions": "2.00 m",
+      "special_amenities": ["Reduced rate for transit users", "Surveillance"]
+    },
+    {
+      "parking_name": "Parkhaus Hardau II",
+      "address": "Duttweilerstrasse 1, 8005 Zürich",
+      "pricing_details": {
+        "standard_rates": "CHF 1.50/1h, CHF 3.00/2h, CHF 4.50/3h, CHF 6.00/4h, then CHF 1.50 each additional hour",
+        "daily_max": "CHF 10.00 (approx.)",
+        "night_rate": "CHF 1.00 per hour",
+        "lost_ticket_fee": "CHF 50.00"
+      },
+      "opening_hours": "24 hours daily",
+      "payment_methods": ["Cash", "Card"],
+      "maximum_parking_duration": "No limit",
+      "height_restrictions": "2.00 m",
+      "special_amenities": ["Surveillance", "Covered"],
+      "operator_contact": {
+        "operator": "Parking Zürich AG",
+        "phone": "+41 44 229 50 50"
+      }
+    },
+    {
+      "parking_name": "Parkhaus Hardturm",
+      "address": "Hardturmstrasse 260, 8005 Zürich",
+      "pricing_details": {
+        "standard_rates": "CHF 1.50/1h, CHF 3.00/2h, CHF 4.50/3h, CHF 6.00/4h, then CHF 1.50 each additional hour",
+        "daily_max": "CHF 10.00",
+        "night_rate": "CHF 1.00 per hour",
+        "lost_ticket_fee": "CHF 50.00"
+      },
+      "opening_hours": "24 hours daily",
+      "payment_methods": ["Cash", "Card"],
+      "maximum_parking_duration": "No limit",
+      "height_restrictions": "2.00 m",
+      "special_amenities": ["Surveillance", "Covered"],
+      "operator_contact": {
+        "operator": "Parking Zürich AG",
+        "phone": "+41 44 229 50 50"
+      }
+    },
+    {
+      "parking_name": "Parkhaus A-Park (Albisrieden)",
+      "address": "Albisriederstrasse 334, 8047 Zürich",
+      "pricing_details": {
+        "standard_rates": "First 30min free; CHF 2.00/1h, CHF 4.00/2h, CHF 7.00/3h, CHF 10.00/4h, then CHF 2.00 each additional hour",
+        "daily_max": "CHF 46.00",
+        "lost_ticket_fee": "CHF 50.00"
+      },
+      "opening_hours": "24 hours daily (pedestrian access with ticket code during night closure)",
+      "payment_methods": ["Cash", "Twint", "Maestro", "Postcard", "Mastercard", "Visa", "Diners Club", "ParkingPay", "JCB", "SwissPass", "UnionPay", "Alipay", "V Pay"],
+      "maximum_parking_duration": "No limit",
+      "height_restrictions": "2.05 m",
+      "special_amenities": ["Surveillance", "Covered", "Elevator", "Disabled parking", "Mobile coverage", "24/7 intercom"],
+      "operator_contact": {
+        "operator": "Parking Zürich AG",
+        "address": "Albisrieden (A-Park)",
+        "phone": "+41 44 229 50 50",
+        "website": "https://www.parkingzuerich.ch/parkhaeuser/a-park/"
+      }
+    },
+    {
+      "parking_name": "Parkhaus Albisriederplatz",
+      "address": "Badenerstrasse 380, 8004 Zürich",
+      "pricing_details": {
+        "standard_rates": "CHF 1.00/30min, CHF 2.00/1h, CHF 4.00/2h, CHF 8.00/3h, CHF 12.00/4h, then CHF 2.00 each additional hour",
+        "daily_max": "CHF 48.00",
+        "lost_ticket_fee": "CHF 50.00"
+      },
+      "opening_hours": "24 hours daily",
+      "payment_methods": ["Cash", "Twint", "Maestro", "Postcard", "Mastercard", "Visa", "ParkingPay", "SwissPass", "V Pay"],
+      "maximum_parking_duration": "No limit",
+      "height_restrictions": "2.05 m",
+      "special_amenities": ["Surveillance", "Covered", "Elevator", "Disabled parking", "Mobile coverage", "24/7 intercom"],
+      "operator_contact": {
+        "operator": "Parking Zürich AG",
+        "phone": "+41 44 229 50 50",
+        "website": "https://www.parkingzuerich.ch/parkhaeuser/parkhaus-albisriederplatz/"
+      }
+    },
+    {
+      "parking_name": "Parkhaus Schiffbau",
+      "address": "Giessereistrasse 18, 8005 Zürich",
+      "pricing_details": {
+        "standard_rates": "CHF 1.50/1h, CHF 3.00/2h, CHF 4.50/3h, CHF 6.00/4h",
+        "daily_max": "CHF 10.00",
+        "night_rate": "CHF 1.00 per hour",
+        "lost_ticket_fee": "CHF 50.00"
+      },
+      "opening_hours": "06:00 - 24:00 daily (entrance until 23:00)",
+      "payment_methods": ["Cash", "Card"],
+      "maximum_parking_duration": "No limit",
+      "height_restrictions": "2.00 m",
+      "special_amenities": ["Surveillance", "Covered"],
+      "operator_contact": {
+        "operator": "Parking Zürich AG",
+        "phone": "+41 44 229 50 50"
+      }
+    },
+    {
+      "parking_name": "Parkhaus Vorderberg",
+      "address": "Vorderberg 3, 8044 Zürich",
+      "pricing_details": {
+        "standard_rates": "CHF 1.50/1h, CHF 3.00/2h, CHF 4.50/3h, CHF 6.00/4h",
+        "daily_max": "CHF 10.00",
+        "lost_ticket_fee": "CHF 50.00"
+      },
+      "opening_hours": "24 hours daily",
+      "payment_methods": ["Cash", "Card"],
+      "maximum_parking_duration": "No limit",
+      "height_restrictions": "2.00 m",
+      "special_amenities": ["Surveillance", "Covered"],
+      "operator_contact": {
+        "operator": "Parking Zürich AG",
+        "phone": "+41 44 229 50 50"
+      }
+    },
+    {
+      "parking_name": "Parkhaus Rämibühl",
+      "address": "Gloriastrasse 25, 8091 Zürich",
+      "pricing_details": {
+        "standard_rates": "CHF 1.00/30min (approx. CHF 2.00 per hour)",
+        "daily_max": "CHF 20.00",
+        "lost_ticket_fee": "CHF 50.00"
+      },
+      "opening_hours": "06:00 - 22:00 (closed overnight)",
+      "payment_methods": ["Cash", "Card"],
+      "maximum_parking_duration": "No limit",
+      "height_restrictions": "2.00 m",
+      "special_amenities": ["Covered"],
+      "operator_contact": {
+        "operator": "Parking Zürich AG",
+        "phone": "+41 44 229 50 50"
+      }
+    },
+    {
+      "parking_name": "Parkgarage am Central",
+      "address": "Seilergraben 61, 8001 Zürich",
+      "pricing_details": {
+        "standard_rates": "CHF 1.00/30min, CHF 3.00/1h, CHF 5.00/1.5h, CHF 7.50/2h (max 2 hours)",
+        "lost_ticket_fee": "CHF 50.00"
+      },
+      "opening_hours": "Mon-Sat 07:00 - 23:00 (closed overnight; closed Sundays)",
+      "payment_methods": ["Cash", "Card"],
+      "maximum_parking_duration": "2 hours (short-term only)",
+      "height_restrictions": "1.90 m",
+      "special_amenities": ["Covered", "Staffed during day"],
+      "operator_contact": {
+        "operator": "Parking Zürich AG",
+        "phone": "+41 44 229 50 50"
+      }
+    },
+    {
+      "parking_name": "Parkhaus Accu (Center 11 Oerlikon)",
+      "address": "Otto-Schütz-Weg, 8050 Zürich",
+      "pricing_details": {
+        "standard_rates": "Mon-Sat 08:00-21:00 – CHF 1.00/30min; CHF 1.50/1h; CHF 2.50/1.5h; CHF 4.50/2h; then CHF 2.00 per 30min up to 5h; beyond 5h, CHF 3.00 per additional hour",
+        "height_restriction_fee": "No daily cap provided (hourly rate continues)",
+        "lost_ticket_fee": "CHF 50.00"
+      },
+      "opening_hours": "24 hours daily",
+      "payment_methods": ["Cash", "Major credit cards"],
+      "maximum_parking_duration": "No limit",
+      "height_restrictions": "1.90 m",
+      "special_amenities": ["Guidance system", "Video surveillance"],
+      "operator_contact": {
+        "operator": "Apleona (Facility Manager)",
+        "phone": "+41 44 567 40 00",
+        "website": "https://ch-hsg.apleona.com"
+      }
+    },
+    {
+      "parking_name": "Parkhaus Cityport",
+      "address": "Affolternstrasse 56, 8050 Zürich Oerlikon",
+      "pricing_details": {
+        "standard_rates": "Mon-Sat 08:00-21:00 – approx. CHF 1.00/30min (CHF 1.50/1h)",
+        "night_rate": "CHF 1.00 per hour (21:00 - 08:00)",
+        "lost_ticket_fee": "CHF 50.00"
+      },
+      "opening_hours": "24 hours daily",
+      "payment_methods": ["Cash", "Major credit cards"],
+      "maximum_parking_duration": "No limit",
+      "height_restrictions": "2.00 m",
+      "special_amenities": ["Guidance system", "Video surveillance", "Open-air parking levels"],
+      "operator_contact": {
+        "operator": "Apleona",
+        "phone": "+41 44 567 40 00"
+      }
+    },
+    {
+      "parking_name": "Parkhaus Messe Zürich",
+      "address": "Wallisellenstrasse 49, 8050 Zürich (Hallenstadion/Messe)",
+      "pricing_details": {
+        "standard_rates": "CHF 2.00/1h, CHF 4.00/2h, CHF 6.00/3h, CHF 8.00/4h, CHF 10.00/5h, CHF 12.00/6h, CHF 14.00/7h, CHF 16.00/8h, CHF 18.00/9h, CHF 20.00/10h",
+        "daily_max": "CHF 20.00 (per 24h)"
+      },
+      "opening_hours": "Sun-Thu 06:00 - 01:00; Open continuously Fri-Sat (24h on weekends)",
+      "payment_methods": ["Cash", "Card", "Parking card subscriptions"],
+      "maximum_parking_duration": "No limit (multi-day possible during events)",
+      "height_restrictions": "2.00 m",
+      "special_amenities": ["EV charging available", "Direct access to event halls", "24/7 on-site staff during events"],
+      "operator_contact": {
+        "operator": "AMAG Parking AG (Parkhaus Messe Zürich)",
+        "phone": "+41 43 495 90 70",
+        "email": "parkhaus.messe-zuerich@amag.ch",
+        "website": "https://parking.amag.ch/de/parkhaus/oerlikon/messe-zuerich.html"
+      }
+    },
+    {
+      "parking_name": "Parkhaus Puls 5",
+      "address": "Giessereistrasse 18, 8005 Zürich",
+      "pricing_details": {
+        "standard_rates": "CHF 2.00/1h, CHF 4.00/2h, CHF 6.00/3h, CHF 8.00/4h, CHF 10.00/5h",
+        "daily_max": "CHF 10.00"
+      },
+      "opening_hours": "06:00 - 24:00 (entry until 23:00)",
+      "payment_methods": ["Cash", "Card"],
+      "maximum_parking_duration": "No limit",
+      "height_restrictions": "2.00 m",
+      "special_amenities": ["Surveillance", "Covered"],
+      "operator_contact": {
+        "operator": "PLS Parkleitsystem (private operator)",
+        "phone": "+41 44 273 15 15"
+      }
+    },
+    {
+      "parking_name": "Parkhaus Globus City",
+      "address": "Löwenstrasse 50, 8001 Zürich",
+      "pricing_details": {
+        "standard_rates": "Mon-Sat 08:00-20:00 – CHF 1.50/30min (approx. CHF 3.50/1h); e.g. CHF 5.00/1.5h, CHF 7.00/2h, CHF 9.00/2.5h, CHF 11.00/3h",
+        "daily_max": "CHF 40.00",
+        "night_rate": "CHF 2.00 per hour (20:00 - 08:00)",
+        "sunday_rate": "CHF 2.00 per hour (Sunday, 00:00 - 24:00)",
+        "lost_ticket_fee": "CHF 50.00"
+      },
+      "opening_hours": "Mon-Sat 08:00 - 20:00 (vehicle entry/exit possible overnight via automated system; closed Sunday for entry)",
+      "payment_methods": ["Cash", "Card"],
+      "maximum_parking_duration": "No explicit limit (short-term focus)",
+      "height_restrictions": "1.90 m",
+      "special_amenities": ["Direct access to Globus department store (during store hours)", "Video surveillance"],
+      "operator_contact": {
+        "operator": "Globus Parking",
+        "address": "Schweizergasse 11, 8001 Zürich",
+        "phone": "+41 44 226 76 76"
+      }
+    },
+    {
+      "parking_name": "Parkhaus Talgarten (Jelmoli)",
+      "address": "Nüschelerstrasse 31, 8001 Zürich",
+      "pricing_details": {
+        "standard_rates": "CHF 2.00/30min, CHF 3.00/45min, CHF 4.00/1h, CHF 9.00/2h, CHF 14.00/3h, CHF 19.00/4h, CHF 24.00/5h, CHF 28.00/6h, CHF 32.00/7h, CHF 36.00/8h, CHF 40.00/9h, daily max CHF 40.00",
+        "night_rate": "CHF 3.00 per hour (22:00 - 06:00)",
+        "sunday_holiday_rate": "CHF 3.00 per hour",
+        "lost_ticket_fee": "CHF 50.00"
+      },
+      "opening_hours": "24/7 (always open)",
+      "payment_methods": ["Cash", "Card"],
+      "maximum_parking_duration": "No limit",
+      "height_restrictions": "2.00 m",
+      "special_amenities": ["Video surveillance", "Direct access to Jelmoli/PKZ stores"],
+      "operator_contact": {
+        "operator": "AMAG Parking (Parkhaus Talgarten AG)",
+        "phone": "+41 44 229 50 50",
+        "website": "https://parking.amag.ch/de/parkhaus/zuerich/talgarten.html"
+      }
+    },
+    {
+      "parking_name": "Parkhaus Opéra",
+      "address": "Schillerstrasse 5, 8001 Zürich",
+      "pricing_details": {
+        "standard_rates": "CHF 2.00/30min, CHF 3.00/45min, CHF 5.00/1h, CHF 10.00/2h, CHF 15.00/3h, CHF 20.00/4h, CHF 25.00/5h, CHF 30.00/6h, CHF 35.00/7h, CHF 40.00/8h, CHF 45.00/9h, daily max CHF 45.00",
+        "night_rate": "CHF 3.00 per hour (23:00 - 06:00)",
+        "sunday_holiday_rate": "CHF 3.00 per hour",
+        "lost_ticket_fee": "CHF 50.00"
+      },
+      "opening_hours": "24/7 (always open)",
+      "payment_methods": ["Cash", "Maestro", "Postcard", "Mastercard", "Visa", "American Express", "Diners Club"],
+      "maximum_parking_duration": "No limit",
+      "height_restrictions": "2.10 m",
+      "special_amenities": ["17 EV charging stations (Ladehaus)", "6 disabled parking spaces (direct lift access to Opernhaus)", "24/7 on-site staff", "Modern LED lighting", "Archaeological exhibit in garage (Opéra digging site museum)", "Direct underground access to Opera House and Stadelhofen Station"],
+      "operator_contact": {
+        "operator": "Parkhaus Opéra AG (AMAG Parking)",
+        "address": "Schillerstrasse 5, 8001 Zürich",
+        "phone": "+41 44 266 85 20",
+        "email": "parkhaus.opera@amag.ch",
+        "website": "https://parking.amag.ch/de/parkhaus/zuerich/opera.html"
+      }
+    },
+    {
+      "parking_name": "Parkhaus Bleicherweg (Park Hyatt)",
+      "address": "Beethovenstrasse 35, 8002 Zürich",
+      "pricing_details": {
+        "standard_rates": "CHF 2.00/30min, CHF 3.00/45min, CHF 4.00/1h, CHF 9.00/2h, CHF 14.00/3h, CHF 19.00/4h, CHF 23.00/5h, CHF 27.00/6h, CHF 31.00/7h, CHF 34.00/8h, CHF 37.00/9h, CHF 39.00/10h, daily max CHF 39.00",
+        "night_rate": "CHF 3.00 per hour (22:00 - 06:00)",
+        "sunday_holiday_rate": "CHF 3.00 per hour",
+        "lost_ticket_fee": "CHF 50.00"
+      },
+      "opening_hours": "06:00 - 22:00 (open 24h for hotel guests; staffed during day)",
+      "payment_methods": ["Cash", "Card"],
+      "maximum_parking_duration": "No limit (hotel parking available overnight)",
+      "height_restrictions": "2.00 m",
+      "special_amenities": ["Direct access to Park Hyatt hotel and Kongresshaus", "EV charging available", "Surveillance", "24/7 access for hotel patrons"],
+      "operator_contact": {
+        "operator": "AMAG Parking (Parkhaus Bleicherweg AG)",
+        "phone": "+41 44 283 45 75",
+        "website": "https://parking.amag.ch/de/parkhaus/zuerich/bleicherweg.html"
+      }
+    },
+    {
+      "parking_name": "Parkhaus Utoquai",
+      "address": "Färberstrasse 6, 8008 Zürich",
+      "pricing_details": {
+        "standard_rates": "CHF 2.00/30min, CHF 3.00/45min, CHF 4.00/1h, CHF 9.00/2h, CHF 14.00/3h, CHF 19.00/4h, CHF 23.00/5h, CHF 27.00/6h, CHF 31.00/7h, CHF 34.00/8h, CHF 37.00/9h, CHF 39.00/10h, daily max CHF 39.00",
+        "night_rate": "CHF 3.00 per hour (22:00 - 06:00)",
+        "sunday_holiday_rate": "CHF 3.00 per hour",
+        "lost_ticket_fee": "CHF 50.00"
+      },
+      "opening_hours": "24/7 (always open)",
+      "payment_methods": ["Cash", "Card"],
+      "maximum_parking_duration": "No limit",
+      "height_restrictions": "2.00 m",
+      "special_amenities": ["Gas station and car wash on-site", "EV charging and e-bike stations", "Disabled parking", "Surveillance", "Direct access to lakeside"],
+      "operator_contact": {
+        "operator": "AMAG Parking (Parkhaus Utoquai AG)",
+        "phone": "+41 44 262 01 24",
+        "website": "https://parking.amag.ch/de/parkhaus/zuerich/utoquai.html"
+      }
+    },
+    {
+      "parking_name": "Parkhaus Kongresshaus",
+      "address": "Gotthardstrasse 5, 8002 Zürich",
+      "pricing_details": {
+        "standard_rates": "CHF 2.00/30min, CHF 3.00/45min, CHF 4.00/1h, CHF 9.00/2h, CHF 14.00/3h, CHF 19.00/4h, CHF 23.00/5h, CHF 27.00/6h, CHF 31.00/7h, CHF 34.00/8h, CHF 37.00/9h, CHF 39.00/10h, daily max CHF 39.00",
+        "night_rate": "CHF 3.00 per hour (22:00 - 06:00)",
+        "sunday_holiday_rate": "CHF 3.00 per hour",
+        "lost_ticket_fee": "CHF 50.00"
+      },
+      "opening_hours": "24/7 (always open)",
+      "payment_methods": ["Cash", "Card"],
+      "maximum_parking_duration": "No limit",
+      "height_restrictions": "2.00 m",
+      "special_amenities": ["Direct access to Kongresshaus/Tonhalle", "EV charging available", "Surveillance", "Elevators"],
+      "operator_contact": {
+        "operator": "AMAG Parking (Parkhaus Kongress AG)",
+        "phone": "+41 44 206 54 04",
+        "website": "https://parking.amag.ch/de/parkhaus/zuerich/kongress.html"
+      }
+    },
+    {
+      "parking_name": "Parkhaus Zähringerplatz",
+      "address": "Zähringerplatz 1, 8001 Zürich",
+      "pricing_details": {
+        "standard_rates": "Mon-Sat 09:00-20:00 – CHF 1.00/30min; CHF 3.00/1h; CHF 7.50/2h (max 2 hours)",
+        "lost_ticket_fee": "CHF 50.00"
+      },
+      "opening_hours": "Mon-Sat 09:00 - 20:00 (closed nights and Sundays)",
+      "payment_methods": ["Cash", "Card"],
+      "maximum_parking_duration": "2 hours (no long-term parking, no overnight)",
+      "height_restrictions": "1.80 m",
+      "special_amenities": ["Short-term parking only", "Located in Old Town"],
+      "operator_contact": {
+        "operator": "City of Zürich (PLS)",
+        "phone": "+41 44 267 09 67"
+      }
+    },
+    {
+      "parking_name": "Parkhaus USZ Nord (Universitätsspital)",
+      "address": "Frauenklinikstrasse 10, 8091 Zürich",
+      "pricing_details": {
+        "standard_rates": "CHF 2.00/1h, CHF 4.00/2h, CHF 6.00/3h, CHF 8.00/4h, etc.",
+        "night_rate": "CHF 1.50 per hour (21:00 - 08:00)",
+        "lost_ticket_fee": "CHF 50.00"
+      },
+      "opening_hours": "24/7 (open to public and patients)",
+      "payment_methods": ["Cash", "Card"],
+      "maximum_parking_duration": "No limit (higher fees for extended stays)",
+      "height_restrictions": "2.00 m",
+      "special_amenities": ["Elevator direct to hospital, disabled parking, reserved staff areas"],
+      "operator_contact": {
+        "operator": "Universitätsspital Zürich",
+        "phone": "+41 44 255 11 11",
+        "website": "https://www.usz.ch/anfahrt/#parking"
+      }
+    }
+  ]
+  
