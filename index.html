@@ -71,13 +71,73 @@
       <div id="map"></div>
     </div>
 
-    <div id="parking-container"></div>
+    <div class="filter-section">
+      <div class="filter-controls">
+        <div class="filter-header">
+          <i class="fas fa-filter"></i> <span>Filter:</span>
+        </div>
 
+        <div class="filter-sort">
+          <select id="sort-select" class="filter-select">
+            <option value="most-available">Most Available</option>
+            <option value="least-available">Least Available</option>
+            <option value="most-occupied">Most Occupied</option>
+            <option value="least-occupied">Least Occupied</option>
+            <option value="alphabetical">A-Z</option>
+          </select>
+        </div>
+
+        <div class="filter-availability">
+          <select id="availability-select" class="filter-select">
+            <option value="all">All Parking</option>
+            <option value="available">Available Only</option>
+            <option value="full">Nearly Full (>90%)</option>
+            <option value="empty">Mostly Empty (<50%)</option>
+          </select>
+        </div>
+
+        <button id="reset-filters" class="reset-btn" title="Reset Filters">
+          <i class="fas fa-undo-alt"></i> <span class="reset-text">Reset</span>
+        </button>
+
+        <div class="filter-count">
+          <span id="visible-count">0</span>/<span id="total-count">0</span>
+        </div>
+      </div>
+    </div>
+
+    <div id="parking-container"></div>
   </main>
+
+  <footer>
+    <div class="container footer-content">
+      <div>
+        <p>© 2025 Zurich Parking Tracker. Website design and code. Parking data provided by <a target="_blank"
+            href="https://api.parkendd.de/Zuerich">api.parkendd.de</a>.</p>
+      </div>
+
+      <ul class="footer-links">
+        <li><a href="/about"><i class="fas fa-info-circle"></i> About</a></li>
+        <li><a href="/faq"><i class="fas fa-question-circle"></i> FAQ</a></li>
+        <li><a href="/contact"><i class="fas fa-envelope"></i> Contact</a></li>
+        <li><a href="/privacy"><i class="fas fa-shield-alt"></i> Privacy Policy</a></li>
+      </ul>
+
+      <ul class="footer-social">
+        <li><a href="https://github.com/yourusername/yourrepo" target="_blank" title="GitHub"><i
+              class="fab fa-github"></i></a></li>
+        <li><a href="https://twitter.com/yourhandle" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+        </li>
+        <li><a href="https://linkedin.com/in/yourprofile" target="_blank" title="LinkedIn"><i
+              class="fab fa-linkedin"></i></a></li>
+      </ul>
+    </div>
+  </footer>
 
   <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
   <script type="module" src="scripts/script.js"></script>
   <script type="module" src="scripts/theme.js"></script>
+  <script type="module" src="scripts/filter.js"></script>
 </body>
 
 </html>

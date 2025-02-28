@@ -60,13 +60,14 @@ function displayParkingData(parkingData) {
 
   sortedLots.forEach((lot, index) => {
     const totalSpaces = lot.total;
-    const freeSpaces = lot.free;
+    // Ensure free spaces don't exceed total capacity
+    const freeSpaces = Math.min(lot.free, totalSpaces);
     const filledSpaces = totalSpaces - freeSpaces;
     const filledPercentage = totalSpaces > 0
       ? ((filledSpaces / totalSpaces) * 100).toFixed(1)
       : "N/A";
 
-    let capacityFillStyle = `width: ${filledPercentage}%;`;
+    let capacityFillStyle = `width: ${filledPercentage !== "N/A" ? filledPercentage : 0}%;`;
     if (totalSpaces > 0) {
       const occupancy = parseFloat(filledPercentage);
       let gradient;
@@ -82,9 +83,14 @@ function displayParkingData(parkingData) {
     card.className = "parking-card";
     card.style.animationDelay = `${index * 0.05}s`;
 
+    // Add a data warning if the API reports more free spaces than total capacity
+    const dataWarning = lot.free > totalSpaces ? 
+      `<div class="data-warning"><i class="fas fa-exclamation-triangle"></i> Data inconsistency detected</div>` : '';
+
     card.innerHTML = `
       <div class="card-header">
         <h2 class="parking-name">${lot.name}</h2>
+        ${dataWarning}
       </div>
       <div class="card-body">
         <div class="stat">
@@ -96,7 +102,7 @@ function displayParkingData(parkingData) {
           <span class="stat-value available">${freeSpaces}</span>
         </div>
         <div class="stat">
-          <span class="stat-label">Occupied (${filledPercentage}%)</span>
+          <span class="stat-label">Occupied (${filledPercentage !== "N/A" ? filledPercentage + "%" : "N/A"})</span>
           <span class="stat-value filled">${filledSpaces}</span>
         </div>
         ${
