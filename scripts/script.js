@@ -1,7 +1,41 @@
 import { updateMapWithData } from "./map.js";
 import { fetchParkingData } from "./fetch.js";
 
-window.loadData = loadData;
+document.addEventListener('DOMContentLoaded', () => {
+  init();
+
+  const refreshButton = document.getElementById('refresh-button');
+  refreshButton.addEventListener('click', () => {
+    init();
+  });
+});
+
+async function init() {
+  showSkeletons();
+  updateLastUpdatedTime(null);
+  await loadData();
+}
+
+function showSkeletons() {
+  const container = document.getElementById("parking-container");
+  container.innerHTML = `
+    <div class="skeleton-card">
+      <div class="skeleton skeleton-title"></div>
+      <div class="skeleton skeleton-line"></div>
+      <div class="skeleton skeleton-line"></div>
+    </div>
+    <div class="skeleton-card">
+      <div class="skeleton skeleton-title"></div>
+      <div class="skeleton skeleton-line"></div>
+      <div class="skeleton skeleton-line"></div>
+    </div>
+    <div class="skeleton-card">
+      <div class="skeleton skeleton-title"></div>
+      <div class="skeleton skeleton-line"></div>
+      <div class="skeleton skeleton-line"></div>
+    </div>
+  `;
+}
 
 async function loadData() {
   const data = await fetchParkingData();
@@ -9,13 +43,11 @@ async function loadData() {
     updateMapWithData(data);
     displayParkingData(data);
     updateLastUpdatedTime(data.last_updated);
+  } else {
+    document.getElementById("parking-container").innerHTML =
+      "<p>❌ Failed to load data</p>";
+    updateLastUpdatedTime(null);
   }
-}
-
-function updateLastUpdatedTime(timestamp) {
-  const lastUpdatedElement = document.querySelector('#last-updated span');
-  const lastUpdated = timestamp ? new Date(timestamp).toLocaleTimeString() : "Unknown";
-  lastUpdatedElement.textContent = `Last updated: ${lastUpdated}`;
 }
 
 function displayParkingData(parkingData) {
@@ -39,9 +71,9 @@ function displayParkingData(parkingData) {
       const occupancy = parseFloat(filledPercentage);
       let gradient;
       if (occupancy < 50) {
-        gradient = 'linear-gradient(to right, #38b000, #ffbe0b)';
+        gradient = "linear-gradient(to right, #38b000, #ffbe0b)";
       } else {
-        gradient = 'linear-gradient(to right, #ffbe0b, #ff5252)';
+        gradient = "linear-gradient(to right, #ffbe0b, #ff5252)";
       }
       capacityFillStyle += ` background: ${gradient};`;
     }
@@ -57,7 +89,7 @@ function displayParkingData(parkingData) {
       <div class="card-body">
         <div class="stat">
           <span class="stat-label">Total Capacity</span>
-          <span class="stat-value capacity">${totalSpaces !== 0 ? totalSpaces : "Unknown"}</span>
+          <span class="stat-value capacity">${totalSpaces || "Unknown"}</span>
         </div>
         <div class="stat">
           <span class="stat-label">Available Spaces</span>
@@ -70,10 +102,10 @@ function displayParkingData(parkingData) {
         ${
           totalSpaces > 0
             ? `
-        <div class="capacity-bar">
-          <div class="capacity-fill" style="${capacityFillStyle}"></div>
-        </div>
-        `
+              <div class="capacity-bar">
+                <div class="capacity-fill" style="${capacityFillStyle}"></div>
+              </div>
+            `
             : ""
         }
         <div class="updated-time">
@@ -86,5 +118,12 @@ function displayParkingData(parkingData) {
   });
 }
 
-loadData();
-setInterval(loadData, 30000);
+function updateLastUpdatedTime(timestamp) {
+  const lastUpdatedElement = document.querySelector("#last-updated span");
+  if (!timestamp) {
+    lastUpdatedElement.textContent = "Last updated: loading...";
+  } else {
+    const lastUpdated = new Date(timestamp).toLocaleTimeString();
+    lastUpdatedElement.textContent = `Last updated: ${lastUpdated}`;
+  }
+}

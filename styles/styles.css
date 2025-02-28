@@ -171,7 +171,7 @@ main {
   border-radius: 12px;
   overflow: hidden;
   box-shadow: var(--card-shadow);
-  margin-bottom: 2rem;
+  margin: 2rem 0;
   height: 500px;
   position: relative;
   z-index: 1;
@@ -186,7 +186,7 @@ main {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 1.5rem;
-  margin-top: 2rem;
+  margin: 2rem 0;
 }
 
 .parking-card {
@@ -272,28 +272,60 @@ main {
   color: var(--gray-500);
 }
 
-#loading-spinner {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(255, 255, 255, 0.9);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-  opacity: 1;
-  transition: opacity 0.3s, visibility 0.3s;
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-.spinner {
-  width: 50px;
-  height: 50px;
-  border: 3px solid var(--gray-300);
-  border-radius: 50%;
-  border-top-color: var(--primary);
-  animation: spin 1s linear infinite;
+.skeleton {
+  background-color: #e0e0e0;
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+}
+
+.skeleton::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: -100%;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% {
+    left: -100%;
+  }
+  50% {
+    left: 100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+.skeleton-card {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: var(--card-shadow);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.skeleton-title {
+  width: 60%;
+  height: 20px;
+  margin-bottom: 1rem;
+}
+
+.skeleton-line {
+  width: 100%;
+  height: 14px;
+  margin-bottom: 0.5rem;
 }
 
 body.dark-mode {
@@ -364,10 +396,6 @@ body.dark-mode .controls .last-updated i {
   color: var(--primary);
 }
 
-body.dark-mode #loading-spinner {
-  background: rgba(33, 37, 41, 0.9);
-}
-
 body.dark-mode .leaflet-popup-content-wrapper {
   background-color: var(--gray-800);
   color: var(--gray-200);
@@ -418,6 +446,18 @@ body.dark-mode .leaflet-control-attribution a:hover {
   text-decoration: underline;
 }
 
+body.dark-mode .skeleton-card {
+  background-color: var(--gray-800);
+}
+
+body.dark-mode .skeleton {
+  background-color: var(--gray-700);
+}
+
+body.dark-mode .skeleton::after {
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+}
+
 @media (max-width: 768px) {
   .header-content {
     flex-direction: column;
@@ -434,41 +474,45 @@ body.dark-mode .leaflet-control-attribution a:hover {
   }
 }
 
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+.map-container {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--card-shadow);
+  margin-bottom: 2rem;
+  height: 500px;
+  z-index: 1;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+#map {
+  height: 100%;
+  width: 100%;
 }
 
-.leaflet-popup-content-wrapper {
-  border-radius: 10px;
-  padding: 0.5rem;
-}
-
-.leaflet-popup-content {
-  margin: 0.5rem 0.8rem;
-  font-family: 'Inter', sans-serif;
-}
-
-.popup-content {
+.map-loading-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(255, 255, 255, 0.8);
+  width: 100%;
+  height: 100%;
+  z-index: 999;
   display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
 }
 
-.popup-title {
+.map-loading-text {
   font-weight: 600;
-  font-size: 1rem;
-  margin: 0;
-  color: var(--gray-800);
+  font-size: 1.1rem;
+  color: #333;
 }
 
-.popup-available {
-  font-weight: 600;
-  color: var(--success);
-  margin: 0;
+body.dark-mode .map-loading-overlay {
+  background: rgba(33, 37, 41, 0.8);
 }
+
+body.dark-mode .map-loading-text {
+  color: #fff;
+}
+
