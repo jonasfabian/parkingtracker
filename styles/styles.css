@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
+/*--------------------------------------------------------------
+# Root Variables
+--------------------------------------------------------------*/
 :root {
   --primary: #3a86ff;
   --primary-dark: #2667cc;
@@ -18,22 +21,28 @@
   --gray-700: #495057;
   --gray-800: #343a40;
   --gray-900: #212529;
-  --card-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --card-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+                 0 4px 6px -2px rgba(0, 0, 0, 0.05);
   --transition-speed: 0.3s;
 }
 
+/*--------------------------------------------------------------
+# Global Styles
+--------------------------------------------------------------*/
 html {
   scroll-behavior: smooth;
 }
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
   margin: 0;
   padding: 0;
   color: var(--gray-800);
   background-color: var(--gray-100);
   line-height: 1.6;
-  transition: background-color var(--transition-speed), color var(--transition-speed);
+  transition: background-color var(--transition-speed),
+              color var(--transition-speed);
 }
 
 .container {
@@ -43,6 +52,9 @@ body {
   padding: 0 1rem;
 }
 
+/*--------------------------------------------------------------
+# Header & Controls
+--------------------------------------------------------------*/
 header {
   background-color: white;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -150,7 +162,8 @@ header {
 
 .theme-toggle i {
   position: absolute;
-  transition: transform var(--transition-speed), opacity var(--transition-speed);
+  transition: transform var(--transition-speed),
+              opacity var(--transition-speed);
 }
 
 .theme-toggle .fa-sun {
@@ -163,17 +176,20 @@ header {
   transform: rotate(0) scale(1);
 }
 
+/*--------------------------------------------------------------
+# Main & Map
+--------------------------------------------------------------*/
 main {
   padding: 2rem 0;
 }
 
 .map-container {
+  position: relative;
   border-radius: 12px;
   overflow: hidden;
   box-shadow: var(--card-shadow);
   margin: 2rem 0;
   height: 500px;
-  position: relative;
   z-index: 1;
 }
 
@@ -182,6 +198,9 @@ main {
   width: 100%;
 }
 
+/*--------------------------------------------------------------
+# Parking Cards
+--------------------------------------------------------------*/
 #parking-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -200,7 +219,8 @@ main {
 
 .parking-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+              0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
 .card-header {
@@ -272,9 +292,18 @@ main {
   color: var(--gray-500);
 }
 
+/*--------------------------------------------------------------
+# Animations
+--------------------------------------------------------------*/
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .skeleton {
@@ -328,6 +357,9 @@ main {
   margin-bottom: 0.5rem;
 }
 
+/*--------------------------------------------------------------
+# Dark Mode Styles
+--------------------------------------------------------------*/
 body.dark-mode {
   background-color: var(--gray-900);
   color: var(--gray-200);
@@ -458,6 +490,9 @@ body.dark-mode .skeleton::after {
   background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
 }
 
+/*--------------------------------------------------------------
+# Responsive Styles
+--------------------------------------------------------------*/
 @media (max-width: 768px) {
   .header-content {
     flex-direction: column;
@@ -473,46 +508,3 @@ body.dark-mode .skeleton::after {
     grid-template-columns: 1fr;
   }
 }
-
-.map-container {
-  position: relative;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: var(--card-shadow);
-  margin-bottom: 2rem;
-  height: 500px;
-  z-index: 1;
-}
-
-#map {
-  height: 100%;
-  width: 100%;
-}
-
-.map-loading-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  background: rgba(255, 255, 255, 0.8);
-  width: 100%;
-  height: 100%;
-  z-index: 999;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.map-loading-text {
-  font-weight: 600;
-  font-size: 1.1rem;
-  color: #333;
-}
-
-body.dark-mode .map-loading-overlay {
-  background: rgba(33, 37, 41, 0.8);
-}
-
-body.dark-mode .map-loading-text {
-  color: #fff;
-}
-
