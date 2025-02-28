@@ -91,6 +91,19 @@ header {
   gap: 1rem;
 }
 
+.controls .last-updated {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--gray-600);
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.controls .last-updated i {
+  color: var(--primary);
+}
+
 .refresh-btn {
   display: flex;
   align-items: center;
@@ -154,26 +167,14 @@ main {
   padding: 2rem 0;
 }
 
-.last-updated {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  margin-bottom: 1.5rem;
-  color: var(--gray-600);
-  font-size: 0.9rem;
-}
-
-.last-updated i {
-  color: var(--primary);
-}
-
 .map-container {
   border-radius: 12px;
   overflow: hidden;
   box-shadow: var(--card-shadow);
   margin-bottom: 2rem;
   height: 500px;
+  position: relative;
+  z-index: 1;
 }
 
 #map {
@@ -194,6 +195,7 @@ main {
   box-shadow: var(--card-shadow);
   padding: 1.5rem;
   transition: transform 0.2s, box-shadow 0.2s;
+  animation: fadeIn 0.5s forwards;
 }
 
 .parking-card:hover {
@@ -259,7 +261,6 @@ main {
 
 .capacity-fill {
   height: 100%;
-  background-color: var(--primary);
   border-radius: 4px;
   transition: width 0.5s ease-out;
 }
@@ -355,6 +356,14 @@ body.dark-mode .capacity-bar {
   background-color: var(--gray-700);
 }
 
+body.dark-mode .controls .last-updated {
+  color: var(--gray-400);
+}
+
+body.dark-mode .controls .last-updated i {
+  color: var(--primary);
+}
+
 body.dark-mode #loading-spinner {
   background: rgba(33, 37, 41, 0.9);
 }
@@ -430,6 +439,11 @@ body.dark-mode .leaflet-control-attribution a:hover {
   100% { transform: rotate(360deg); }
 }
 
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 .leaflet-popup-content-wrapper {
   border-radius: 10px;
   padding: 0.5rem;
@@ -457,20 +471,4 @@ body.dark-mode .leaflet-control-attribution a:hover {
   font-weight: 600;
   color: var(--success);
   margin: 0;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.parking-card {
-  animation: fadeIn 0.5s forwards;
-}
-
-.leaflet-control-zoom,
-.leaflet-control-zoom-in,
-.leaflet-control-zoom-out,
-.leaflet-control-attribution {
-  transition: background-color var(--transition-speed), color var(--transition-speed), border-color var(--transition-speed);
 }

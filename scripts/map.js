@@ -21,7 +21,7 @@ function getMarkerIcon(availability) {
   } else {
     color = '#38b000';
   }
-  
+
   const borderColor = document.body.classList.contains('dark-mode') ? '#333' : 'white';
   
   return L.divIcon({
@@ -61,7 +61,6 @@ function updateMapWithData(data) {
   
   data.lots.forEach(lot => {
     if (!lot.coords) return;
-    
     const { lat, lng } = lot.coords;
     const marker = L.marker([lat, lng], {
       icon: getMarkerIcon(lot.free)
