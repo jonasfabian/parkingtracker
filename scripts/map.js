@@ -71,6 +71,8 @@ interactionControl.onAdd = () => {
 };
 interactionControl.addTo(map);
 
+let markers = [];
+
 function getMarkerIcon(availability) {
   const color = availability === 0 ? '#ff5252' : availability < 10 ? '#ffbe0b' : '#38b000';
   const borderColor = document.body.classList.contains('dark-mode') ? '#333' : 'white';
@@ -84,11 +86,9 @@ function getMarkerIcon(availability) {
 
 function createCustomPopup(lot) {
   const freeSpaces = Math.min(lot.free, lot.total);
-  
   const dataWarning = lot.free > lot.total 
     ? `<p style="margin:0;font-size:0.85rem;color:#ffbe0b;"><i class="fas fa-exclamation-triangle"></i> Data inconsistency detected</p>` 
     : '';
-  
   return `<div class="popup-content">
             <h3 class="popup-title">${lot.name}</h3>
             <p class="popup-available"><i class="fas fa-car"></i> ${freeSpaces} spaces available</p>
@@ -101,14 +101,49 @@ let lastLoadedData = null;
 function updateMapWithData(data) {
   if (!data) return;
   lastLoadedData = data;
-  map.eachLayer(layer => { if (layer instanceof L.Marker) map.removeLayer(layer); });
+  markers.forEach(marker => map.removeLayer(marker));
+  markers = [];
   data.lots.forEach(lot => {
     if (lot.coords) {
       const { lat, lng } = lot.coords;
-      const marker = L.marker([lat, lng], { icon: getMarkerIcon(lot.free) }).addTo(map);
+      const marker = L.marker([lat, lng], { icon: getMarkerIcon(lot.free) });
+      marker.lotData = lot;
       marker.bindPopup(createCustomPopup(lot), { closeButton: false });
       marker.on('mouseover', function() { this.openPopup(); });
       marker.on('mouseout', function() { this.closePopup(); });
+      markers.push(marker);
+      marker.addTo(map);
+    }
+  });
+}
+
+function filterMarkers(filterValue) {
+  markers.forEach(marker => {
+    const lot = marker.lotData;
+    const total = lot.total || 0;
+    const free = lot.free || 0;
+    const occupied = total - free;
+    const occupancyPercentage = total > 0 ? (occupied / total) * 100 : 0;
+    let show = true;
+    
+    switch (filterValue) {
+      case 'available':
+        show = free > 0;
+        break;
+      case 'full':
+        show = occupancyPercentage >= 90;
+        break;
+      case 'empty':
+        show = occupancyPercentage < 50;
+        break;
+      default:
+        show = true;
+    }
+    
+    if (show) {
+      if (!map.hasLayer(marker)) marker.addTo(map);
+    } else {
+      if (map.hasLayer(marker)) map.removeLayer(marker);
     }
   });
 }
@@ -126,4 +161,5 @@ function updateMapTheme(isDarkMode) {
 document.addEventListener('DOMContentLoaded', () => {
   if (document.body.classList.contains('dark-mode')) updateMapTheme(true);
 });
-export { updateMapWithData, updateMapTheme };
+
+export { updateMapWithData, updateMapTheme, filterMarkers };
