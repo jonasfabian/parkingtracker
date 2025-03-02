@@ -123,8 +123,6 @@ function createLegendToggle() {
     L.DomEvent.on(container, 'click', () => {
       isLegendVisible = !isLegendVisible;
       toggleLegend();
-      
-      icon.style.transform = isLegendVisible ? 'rotate(180deg)' : 'rotate(0deg)';
     });
 
     return container;
