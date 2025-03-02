@@ -143,3 +143,4 @@ document.addEventListener('DOMContentLoaded', () => {
     visibleCountEl.textContent = visibleCards;
   }
 });
+ 
