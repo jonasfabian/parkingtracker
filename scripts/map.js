@@ -71,6 +71,142 @@ interactionControl.onAdd = () => {
 };
 interactionControl.addTo(map);
 
+let legend = null;
+let legendControl = null;
+let isLegendVisible = false;
+
+function createLegendToggle() {
+  if (legendControl) {
+    map.removeControl(legendControl);
+  }
+
+  legendControl = L.control({ position: 'bottomright' });
+  const isDarkMode = document.body.classList.contains('dark-mode');
+  const bgColor = isDarkMode ? '#333' : 'white';
+  const textColor = isDarkMode ? '#f4f4f4' : '#333';
+  const borderColor = isDarkMode ? '#444' : '#ddd';
+
+  legendControl.onAdd = function(map) {
+    const container = L.DomUtil.create('div', 'leaflet-bar leaflet-control legend-toggle');
+    Object.assign(container.style, {
+      backgroundColor: bgColor,
+      width: '30px',
+      height: '30px',
+      cursor: 'pointer',
+      border: `1px solid ${borderColor}`,
+      borderRadius: '4px',
+      boxShadow: '0 1px 5px rgba(0,0,0,0.2)',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      zIndex: 1000,
+      transition: 'background-color 0.3s'
+    });
+    container.title = 'Toggle Legend';
+
+    const icon = L.DomUtil.create('i', 'fas fa-info-circle', container);
+    Object.assign(icon.style, {
+      color: textColor,
+      fontSize: '16px',
+      transition: 'transform 0.3s'
+    });
+
+    container.addEventListener('mouseover', () => {
+      container.style.backgroundColor = isDarkMode ? '#444' : '#f4f4f4';
+    });
+    
+    container.addEventListener('mouseout', () => {
+      container.style.backgroundColor = bgColor;
+    });
+
+    L.DomEvent.disableClickPropagation(container);
+    L.DomEvent.on(container, 'click', () => {
+      isLegendVisible = !isLegendVisible;
+      toggleLegend();
+      
+      icon.style.transform = isLegendVisible ? 'rotate(180deg)' : 'rotate(0deg)';
+    });
+
+    return container;
+  };
+
+  legendControl.addTo(map);
+}
+
+function createLegend() {
+  if (legend) {
+    map.removeControl(legend);
+  }
+
+  legend = L.control({ position: 'bottomright' });
+  const isDarkMode = document.body.classList.contains('dark-mode');
+  const bgColor = isDarkMode ? '#333' : 'white';
+  const textColor = isDarkMode ? '#f4f4f4' : '#333';
+  const borderColor = isDarkMode ? '#444' : '#ddd';
+
+  legend.onAdd = function(map) {
+    const div = L.DomUtil.create('div', 'info legend');
+    Object.assign(div.style, {
+      backgroundColor: bgColor,
+      padding: '10px',
+      borderRadius: '4px',
+      boxShadow: '0 1px 5px rgba(0,0,0,0.2)',
+      lineHeight: '1.5',
+      color: textColor,
+      border: `1px solid ${borderColor}`,
+      transition: 'all 0.3s ease',
+      maxWidth: '200px',
+      marginBottom: '10px',
+      opacity: isLegendVisible ? '1' : '0',
+      transform: isLegendVisible ? 'translateY(0)' : 'translateY(20px)',
+      maxHeight: isLegendVisible ? '200px' : '0',
+      overflow: 'hidden',
+      pointerEvents: isLegendVisible ? 'auto' : 'none'
+    });
+    
+    div.innerHTML = '<div style="font-weight:bold;margin-bottom:5px;">Parking Availability</div>';
+  
+    const categories = [
+      { color: '#38b000', label: '10+ spaces available' },
+      { color: '#ffbe0b', label: '1-9 spaces available' },
+      { color: '#ff5252', label: 'No spaces available' }
+    ];
+    
+    categories.forEach(category => {
+      const markerBorderColor = isDarkMode ? '#333' : 'white';
+      div.innerHTML += 
+        `<div style="display:flex;align-items:center;margin:5px 0;">
+          <div style="background-color:${category.color};width:12px;height:12px;border-radius:50%;margin-right:8px;border:3px solid ${markerBorderColor};box-shadow:0 0 5px rgba(0,0,0,0.2);"></div>
+          <span>${category.label}</span>
+        </div>`;
+    });
+    
+    return div;
+  };
+  
+  if (isLegendVisible) {
+    legend.addTo(map);
+  }
+}
+
+function toggleLegend() {
+  if (isLegendVisible) {
+    if (!legend || !map.hasLayer(legend)) {
+      createLegend();
+    }
+  } else {
+    if (legend) {
+      map.removeControl(legend);
+      legend = null;
+    }
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  createLegendToggle();
+  createLegend();
+});
+
 let markers = [];
 
 function getMarkerIcon(availability) {
@@ -155,6 +291,10 @@ function updateMapTheme(isDarkMode) {
     const ctrl = document.querySelector('.map-interaction-toggle');
     if (ctrl) ctrl.style.backgroundColor = isDarkMode ? '#333' : 'white';
     if (lastLoadedData) updateMapWithData(lastLoadedData);
+    
+
+    createLegendToggle();
+    createLegend();
   }, 50);
 }
 
