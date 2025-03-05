@@ -40,28 +40,35 @@
 
   <header>
     <div class="container header-content">
-      <div>
+      <div class="header-brand">
         <a href="/" class="logo">
-          <span class="logo-icon"><i class="fas fa-parking"></i></span>
-          <h1 class="logo-text">Zurich Parking Tracker</h1>
+          <div class="logo-icon">
+            <i class="fas fa-parking"></i>
+          </div>
+          <div class="logo-text-container">
+            <h1 class="logo-text">Zurich Parking Tracker</h1>
+            <p class="subtitle">Live parking availability across Zurich</p>
+          </div>
         </a>
-        <p class="subtitle">Live updates of available parking spaces across Zurich city.</p>
       </div>
 
-      <div class="controls">
-        <button id="refresh-button" class="refresh-btn">
-          <i class="fas fa-sync-alt"></i>
-          Refresh Now
-        </button>
-
+      <div class="header-controls">
         <div id="last-updated" class="last-updated">
-          <i class="fas fa-clock"></i>
-          <span>Last updated: checking...</span>
+          <div class="update-indicator"></div>
+          <span class="update-text">Updated: checking...</span>
         </div>
-
-        <button id="theme-toggle" class="theme-toggle">
-          <i class="fas fa-moon"></i>
-        </button>
+        
+        <div class="action-buttons">
+          <button id="refresh-button" class="refresh-btn" title="Refresh Now">
+            <i class="fas fa-sync-alt"></i>
+            <span>Refresh</span>
+          </button>
+          
+          <button id="theme-toggle" class="theme-toggle" title="Toggle Dark Mode">
+            <i class="fas fa-sun"></i>
+            <i class="fas fa-moon"></i>
+          </button>
+        </div>
       </div>
     </div>
   </header>

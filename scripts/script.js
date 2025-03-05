@@ -125,11 +125,33 @@ function displayParkingData(parkingData) {
 }
 
 function updateLastUpdatedTime(timestamp) {
-  const lastUpdatedElement = document.querySelector("#last-updated span");
+  const lastUpdatedElement = document.querySelector(".update-text");
+  const updateIndicator = document.querySelector(".update-indicator");
+  
   if (!timestamp) {
-    lastUpdatedElement.textContent = "Last updated: loading...";
+    lastUpdatedElement.textContent = "Checking...";
+    updateIndicator.style.backgroundColor = 'var(--gray-500)';
   } else {
     const lastUpdated = new Date(timestamp).toLocaleTimeString();
-    lastUpdatedElement.textContent = `Last updated: ${lastUpdated}`;
+    lastUpdatedElement.textContent = `Updated: ${lastUpdated}`;
+    updateIndicator.style.backgroundColor = 'var(--success)';
   }
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+  init();
+
+  const refreshButton = document.getElementById('refresh-button');
+  refreshButton.addEventListener('click', () => {
+    document.body.classList.add('refreshing');
+    
+    const refreshTimeout = setTimeout(() => {
+      document.body.classList.remove('refreshing');
+    }, 5000);
+    
+    init().then(() => {
+      clearTimeout(refreshTimeout);
+      document.body.classList.remove('refreshing');
+    });
+  });
+});
