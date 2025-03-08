@@ -206,12 +206,21 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 let markers = [];
+let loadingMarkers = [];
 
-function getMarkerIcon(availability) {
-  const color = availability === 0 ? '#ff5252' : availability < 10 ? '#ffbe0b' : '#38b000';
+function getMarkerIcon(availability, isLoading = false) {
+  let color;
+  
+  if (isLoading) {
+    color = 'var(--gray-500)';
+  } else {
+    color = availability === 0 ? '#ff5252' : availability < 10 ? '#ffbe0b' : '#38b000';
+  }
+  
   const borderColor = document.body.classList.contains('dark-mode') ? '#333' : 'white';
+  
   return L.divIcon({
-    html: `<div style="background-color:${color};width:12px;height:12px;border-radius:50%;border:3px solid ${borderColor};box-shadow:0 0 10px rgba(0,0,0,0.2);"></div>`,
+    html: `<div class="${isLoading ? 'loading-marker-pulse' : ''}" style="background-color:${color};width:12px;height:12px;border-radius:50%;border:3px solid ${borderColor};box-shadow:0 0 10px rgba(0,0,0,0.2);"></div>`,
     className: 'custom-marker',
     iconSize: [18, 18],
     iconAnchor: [9, 9]
@@ -231,12 +240,52 @@ function createCustomPopup(lot) {
           </div>`;
 }
 
+function showLoadingMarkers(data) {
+  markers.forEach(marker => map.removeLayer(marker));
+  loadingMarkers.forEach(marker => map.removeLayer(marker));
+  markers = [];
+  loadingMarkers = [];
+  
+  if (data && data.lots) {
+    data.lots.forEach(lot => {
+      if (lot.coords) {
+        const { lat, lng } = lot.coords;
+        const loadingMarker = L.marker([lat, lng], { icon: getMarkerIcon(0, true) });
+        loadingMarkers.push(loadingMarker);
+        loadingMarker.addTo(map);
+      }
+    });
+  } 
+  else {
+    const zurichCenter = [47.3769, 8.5417];
+    const placeholderPositions = [
+      [47.3769, 8.5417],
+      [47.3819, 8.5367],
+      [47.3719, 8.5467],
+      [47.3749, 8.5317],
+      [47.3689, 8.5517],
+      [47.3809, 8.5517]
+    ];
+    
+    placeholderPositions.forEach(pos => {
+      const loadingMarker = L.marker(pos, { icon: getMarkerIcon(0, true) });
+      loadingMarkers.push(loadingMarker);
+      loadingMarker.addTo(map);
+    });
+  }
+}
+
 let lastLoadedData = null;
 function updateMapWithData(data) {
   if (!data) return;
   lastLoadedData = data;
+  
+  loadingMarkers.forEach(marker => map.removeLayer(marker));
+  loadingMarkers = [];
+  
   markers.forEach(marker => map.removeLayer(marker));
   markers = [];
+  
   data.lots.forEach(lot => {
     if (lot.coords) {
       const { lat, lng } = lot.coords;
@@ -300,4 +349,4 @@ document.addEventListener('DOMContentLoaded', () => {
   if (document.body.classList.contains('dark-mode')) updateMapTheme(true);
 });
 
-export { updateMapWithData, updateMapTheme, filterMarkers };
+export { updateMapWithData, updateMapTheme, filterMarkers, showLoadingMarkers };

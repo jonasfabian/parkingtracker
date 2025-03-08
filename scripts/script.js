@@ -1,5 +1,7 @@
-import { updateMapWithData } from "./map.js";
+import { updateMapWithData, showLoadingMarkers } from "./map.js";
 import { fetchParkingData } from "./fetch.js";
+
+let lastLoadedData = null;
 
 document.addEventListener('DOMContentLoaded', () => {
   init();
@@ -7,6 +9,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const refreshButton = document.getElementById('refresh-button');
   refreshButton.addEventListener('click', () => {
     document.body.classList.add('refreshing');
+    
+    if (lastLoadedData) {
+      showLoadingMarkers(lastLoadedData);
+    } else {
+      showLoadingMarkers();
+    }
     
     const refreshTimeout = setTimeout(() => {
       document.body.classList.remove('refreshing');
@@ -47,8 +55,12 @@ function showSkeletons() {
 }
 
 async function loadData() {
+  showLoadingMarkers(lastLoadedData);
+  
   const data = await fetchParkingData();
   if (data) {
+    lastLoadedData = data;
+    
     updateMapWithData(data);
     displayParkingData(data);
     updateLastUpdatedTime(data.last_updated);
@@ -139,7 +151,17 @@ function updateLastUpdatedTime(timestamp) {
     lastUpdatedElement.textContent = "Checking...";
     updateIndicator.style.backgroundColor = 'var(--gray-500)';
   } else {
-    const lastUpdated = new Date(timestamp).toLocaleTimeString();
+
+    const date = new Date(timestamp);
+    
+    date.setHours(date.getHours() + 1);
+    
+    const lastUpdated = date.toLocaleTimeString('de-CH', { 
+      hour: '2-digit', 
+      minute: '2-digit',
+      hour12: false 
+    });
+    
     lastUpdatedElement.textContent = `Updated: ${lastUpdated}`;
     updateIndicator.style.backgroundColor = 'var(--success)';
   }

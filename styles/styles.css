@@ -96,10 +96,6 @@ header:after {
   transition: transform 0.2s ease;
 }
 
-.logo:hover {
-  transform: translateY(-1px);
-}
-
 .logo-icon {
   display: flex;
   align-items: center;
@@ -155,52 +151,54 @@ header:after {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.4rem 0.8rem;
-  background-color: var(--gray-100);
-  border-radius: 8px;
-  transition: background-color 0.2s ease;
+  padding: 0;
+  transition: color 0.2s ease;
+  background-color: transparent;
 }
 
 .update-indicator {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
   background-color: var(--success);
+  opacity: 0.7;
   position: relative;
+  flex-shrink: 0;
 }
 
 .update-indicator:after {
   content: '';
   position: absolute;
-  top: -4px;
-  left: -4px;
-  right: -4px;
-  bottom: -4px;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
   border-radius: 50%;
   background-color: var(--success);
-  opacity: 0.3;
+  opacity: 0.15;
   animation: pulse 2s infinite;
+  z-index: -1;
 }
 
 @keyframes pulse {
   0% {
     transform: scale(0.8);
-    opacity: 0.3;
+    opacity: 0.15;
   }
   50% {
-    transform: scale(1.5);
-    opacity: 0.1;
+    transform: scale(1.2);
+    opacity: 0.05;
   }
   100% {
     transform: scale(0.8);
-    opacity: 0.3;
+    opacity: 0.15;
   }
 }
 
 .update-text {
   font-size: 0.85rem;
-  color: var(--gray-700);
-  font-weight: 500;
+  color: var(--gray-500);
+  font-weight: 400;
 }
 
 .refresh-btn {
@@ -221,7 +219,6 @@ header:after {
 
 .refresh-btn:hover {
   background-color: var(--primary-dark);
-  transform: translateY(-1px);
   box-shadow: 0 4px 8px rgba(58, 134, 255, 0.4);
 }
 
@@ -258,7 +255,6 @@ header:after {
 
 .theme-toggle:hover {
   background-color: var(--gray-200);
-  transform: translateY(-1px);
 }
 
 .theme-toggle i {
@@ -277,7 +273,6 @@ header:after {
   transform: rotate(0) scale(1);
 }
 
-/* add animaton for refreshing state */
 .refreshing .refresh-btn i {
   animation: spin 1s infinite linear;
 }
@@ -330,10 +325,6 @@ body.dark-mode .theme-toggle .fa-sun {
 body.dark-mode .theme-toggle .fa-moon {
   opacity: 0;
   transform: rotate(-90deg) scale(0);
-}
-
-body.dark-mode .last-updated {
-  background-color: var(--gray-700);
 }
 
 body.dark-mode .update-text {
@@ -406,7 +397,7 @@ body.dark-mode .update-text {
 
 @media (max-width: 375px) {
   .last-updated {
-    padding: 0.3rem 0.5rem;
+    padding: 0;
   }
   
   .update-text {
@@ -576,6 +567,40 @@ main {
   }
   100% {
     left: 100%;
+  }
+}
+
+/* Loading marker animation */
+.loading-marker-pulse {
+  position: relative;
+}
+
+.loading-marker-pulse::after {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  background-color: var(--gray-500);
+  border-radius: 50%;
+  opacity: 0.4;
+  z-index: -1;
+  animation: marker-pulse 1.5s infinite ease-in-out;
+}
+
+@keyframes marker-pulse {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.4;
+  }
+  50% {
+    transform: scale(2);
+    opacity: 0.1;
+  }
+  100% {
+    transform: scale(0.8);
+    opacity: 0.4;
   }
 }
 
