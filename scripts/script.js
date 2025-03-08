@@ -6,7 +6,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const refreshButton = document.getElementById('refresh-button');
   refreshButton.addEventListener('click', () => {
-    init();
+    document.body.classList.add('refreshing');
+    
+    const refreshTimeout = setTimeout(() => {
+      document.body.classList.remove('refreshing');
+    }, 5000);
+    
+    init().then(() => {
+      clearTimeout(refreshTimeout);
+      document.body.classList.remove('refreshing');
+    });
   });
 });
 
@@ -60,7 +69,6 @@ function displayParkingData(parkingData) {
 
   sortedLots.forEach((lot, index) => {
     const totalSpaces = lot.total;
-    // Ensure free spaces don't exceed total capacity
     const freeSpaces = Math.min(lot.free, totalSpaces);
     const filledSpaces = totalSpaces - freeSpaces;
     const filledPercentage = totalSpaces > 0
@@ -83,7 +91,6 @@ function displayParkingData(parkingData) {
     card.className = "parking-card";
     card.style.animationDelay = `${index * 0.05}s`;
 
-    // Add a data warning if the API reports more free spaces than total capacity
     const dataWarning = lot.free > totalSpaces ? 
       `<div class="data-warning"><i class="fas fa-exclamation-triangle"></i> Data inconsistency detected</div>` : '';
 
@@ -137,21 +144,3 @@ function updateLastUpdatedTime(timestamp) {
     updateIndicator.style.backgroundColor = 'var(--success)';
   }
 }
-
-document.addEventListener('DOMContentLoaded', () => {
-  init();
-
-  const refreshButton = document.getElementById('refresh-button');
-  refreshButton.addEventListener('click', () => {
-    document.body.classList.add('refreshing');
-    
-    const refreshTimeout = setTimeout(() => {
-      document.body.classList.remove('refreshing');
-    }, 5000);
-    
-    init().then(() => {
-      clearTimeout(refreshTimeout);
-      document.body.classList.remove('refreshing');
-    });
-  });
-});
