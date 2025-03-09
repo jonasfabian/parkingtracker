@@ -57,13 +57,13 @@
           <div class="update-indicator"></div>
           <span class="update-text">Updated: checking...</span>
         </div>
-        
+
         <div class="action-buttons">
           <button id="refresh-button" class="refresh-btn" title="Refresh Now">
             <i class="fas fa-sync-alt"></i>
             <span>Refresh</span>
           </button>
-          
+
           <button id="theme-toggle" class="theme-toggle" title="Toggle Dark Mode">
             <i class="fas fa-sun"></i>
             <i class="fas fa-moon"></i>
@@ -84,31 +84,43 @@
           <i class="fas fa-filter"></i> <span>Filter:</span>
         </div>
 
-        <div class="filter-sort">
-          <select id="sort-select" class="filter-select">
-            <option value="most-available">Most Available</option>
-            <option value="least-available">Least Available</option>
-            <option value="most-occupied">Most Occupied</option>
-            <option value="least-occupied">Least Occupied</option>
-            <option value="alphabetical">A-Z</option>
-          </select>
+        <div class="search-container">
+          <i class="fas fa-search search-icon"></i>
+          <input type="text" id="search-input" placeholder="Search parking lots..." class="search-input">
+          <button id="clear-search" class="clear-search" title="Clear Search">
+            <i class="fas fa-times"></i>
+          </button>
         </div>
 
-        <div class="filter-availability">
-          <select id="availability-select" class="filter-select">
-            <option value="all">All Parking</option>
-            <option value="available">Available Only</option>
-            <option value="full">Nearly Full (>90%)</option>
-            <option value="empty">Mostly Empty (<50%)</option>
-          </select>
+        <div class="filter-dropdown-group">
+          <div class="filter-sort">
+            <select id="sort-select" class="filter-select">
+              <option value="most-available">Most Available</option>
+              <option value="least-available">Least Available</option>
+              <option value="most-occupied">Most Occupied</option>
+              <option value="least-occupied">Least Occupied</option>
+              <option value="alphabetical">A-Z</option>
+            </select>
+          </div>
+
+          <div class="filter-availability">
+            <select id="availability-select" class="filter-select">
+              <option value="all">All Parking</option>
+              <option value="available">Available Only</option>
+              <option value="full">Nearly Full (>90%)</option>
+              <option value="empty">Mostly Empty (<50%)</option>
+            </select>
+          </div>
         </div>
 
-        <button id="reset-filters" class="reset-btn" title="Reset Filters">
-          <i class="fas fa-undo-alt"></i> <span class="reset-text">Reset</span>
-        </button>
+        <div class="filter-actions">
+          <button id="reset-filters" class="reset-btn" title="Reset Filters">
+            <i class="fas fa-undo-alt"></i> <span class="reset-text">Reset</span>
+          </button>
 
-        <div class="filter-count">
-          <span id="visible-count">0</span>/<span id="total-count">0</span>
+          <div class="filter-count">
+            <span id="visible-count">0</span>/<span id="total-count">0</span>
+          </div>
         </div>
       </div>
     </div>
@@ -124,8 +136,8 @@
       </div>
 
       <ul class="footer-social">
-        <li><a href="https://github.com/jonasfabian" target="_blank" title="GitHub"><i
-              class="fab fa-github"></i></a></li>
+        <li><a href="https://github.com/jonasfabian" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+        </li>
         </li>
       </ul>
     </div>
