@@ -80,23 +80,33 @@ function displayParkingData(parkingData) {
     .sort((a, b) => b.free - a.free);
 
   sortedLots.forEach((lot, index) => {
-    const totalSpaces = lot.total;
-    const freeSpaces = Math.min(lot.free, totalSpaces);
+    const totalSpaces = lot.total || 0;
+    const freeSpaces = Math.min(lot.free || 0, totalSpaces);
     const filledSpaces = totalSpaces - freeSpaces;
+    
+    // Calculate percentages
     const filledPercentage = totalSpaces > 0
       ? ((filledSpaces / totalSpaces) * 100).toFixed(1)
-      : "N/A";
+      : 0;
 
-    let capacityFillStyle = `width: ${filledPercentage !== "N/A" ? filledPercentage : 0}%;`;
-    if (totalSpaces > 0) {
-      const occupancy = parseFloat(filledPercentage);
-      let gradient;
-      if (occupancy < 50) {
-        gradient = "linear-gradient(to right, #38b000, #ffbe0b)";
-      } else {
-        gradient = "linear-gradient(to right, #ffbe0b, #ff5252)";
-      }
-      capacityFillStyle += ` background: ${gradient};`;
+    // Determine status text
+    let statusText = '';
+    let statusIcon = '';
+    let statusClass = '';
+    let capacityFillClass = '';
+    let availableClass = freeSpaces === 0 ? 'none' : '';
+    
+    if (freeSpaces === 0) {
+      statusText = 'Full';
+      statusIcon = 'ban';
+      statusClass = 'full';
+      capacityFillClass = 'full';
+    } else if (freeSpaces < 10) {
+      statusText = 'Limited';
+      statusIcon = 'exclamation-circle';
+    } else {
+      statusText = 'Available';
+      statusIcon = 'check-circle';
     }
 
     const card = document.createElement("div");
@@ -109,30 +119,39 @@ function displayParkingData(parkingData) {
     card.innerHTML = `
       <div class="card-header">
         <h2 class="parking-name">${lot.name}</h2>
-        ${dataWarning}
+        <span class="status-pill ${statusClass}">
+          <i class="fas fa-${statusIcon}"></i> ${statusText}
+        </span>
       </div>
       <div class="card-body">
-        <div class="stat">
-          <span class="stat-label">Total Capacity</span>
-          <span class="stat-value capacity">${totalSpaces || "Unknown"}</span>
+        <div class="main-stats">
+          <div class="stat-column">
+            <div class="stat-value">${totalSpaces}</div>
+            <div class="stat-label"><i class="fas fa-parking"></i> Capacity</div>
+          </div>
+          <div class="stat-column">
+            <div class="stat-value available ${availableClass}">${freeSpaces}</div>
+            <div class="stat-label"><i class="fas fa-check"></i> Available</div>
+          </div>
+          <div class="stat-column">
+            <div class="stat-value">${filledSpaces}</div>
+            <div class="stat-label"><i class="fas fa-car"></i> Occupied</div>
+          </div>
         </div>
-        <div class="stat">
-          <span class="stat-label">Available Spaces</span>
-          <span class="stat-value available">${freeSpaces}</span>
+        
+        <div class="capacity-section">
+          <div class="capacity-header">
+            <div class="capacity-title">Occupancy</div>
+            <div class="capacity-percentage">${filledPercentage}%</div>
+          </div>
+          <div class="capacity-bar">
+            <div class="capacity-fill ${capacityFillClass}" style="width: ${filledPercentage}%"></div>
+          </div>
         </div>
-        <div class="stat">
-          <span class="stat-label">Occupied (${filledPercentage !== "N/A" ? filledPercentage + "%" : "N/A"})</span>
-          <span class="stat-value filled">${filledSpaces}</span>
-        </div>
-        ${
-          totalSpaces > 0
-            ? `
-              <div class="capacity-bar">
-                <div class="capacity-fill" style="${capacityFillStyle}"></div>
-              </div>
-            `
-            : ""
-        }
+        
+        ${dataWarning}
+      </div>
+      <div class="card-footer">
         <div class="updated-time">
           <i class="fas fa-history"></i> Updated just now
         </div>
