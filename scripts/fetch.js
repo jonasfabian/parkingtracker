@@ -3,7 +3,6 @@ async function fetchParkingData() {
   try {
     const response = await fetch(url);
     const data = await response.json();
-    console.log("API Response:", data);
     return data;
   } catch (error) {
     console.error("Error fetching data:", error);

@@ -175,19 +175,11 @@ function filterCards() {
   const filterValue = availabilitySelect ? availabilitySelect.value : 'all';
   const searchQuery = searchInput ? searchInput.value.trim().toLowerCase() : '';
   
-  if (searchQuery) {
-    console.log('Searching for:', searchQuery);
-  }
-  
   let anyVisible = false;
 
   cards.forEach(card => {
     const parkingNameElem = card.querySelector('.parking-name');
     const name = parkingNameElem ? parkingNameElem.textContent.trim().toLowerCase() : '';
-    
-    if (searchQuery && name.includes(searchQuery)) {
-      console.log('Match found:', name);
-    }
     
     const statValues = card.querySelectorAll('.stat-value');
     const total = parseInt(statValues[0]?.textContent) || 0;
