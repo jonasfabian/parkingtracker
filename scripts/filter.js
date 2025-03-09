@@ -251,7 +251,10 @@ function applyFilters() {
   updateCounters();
   
   if (typeof filterMarkers === 'function') {
-    filterMarkers(availabilitySelect ? availabilitySelect.value : 'all');
+    const availabilityFilter = availabilitySelect ? availabilitySelect.value : 'all';
+    const searchQuery = searchInput ? searchInput.value.trim() : '';
+    
+    filterMarkers(availabilityFilter, searchQuery);
   }
 }
 

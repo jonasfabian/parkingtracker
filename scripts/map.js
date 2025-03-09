@@ -300,30 +300,37 @@ function updateMapWithData(data) {
   });
 }
 
-function filterMarkers(filterValue) {
+function filterMarkers(availabilityFilter, searchQuery = '') {
+  searchQuery = searchQuery.toLowerCase().trim();
+  
   markers.forEach(marker => {
     const lot = marker.lotData;
+    if (!lot) return;
+    
+    const name = lot.name.toLowerCase();
     const total = lot.total || 0;
     const free = lot.free || 0;
     const occupied = total - free;
     const occupancyPercentage = total > 0 ? (occupied / total) * 100 : 0;
-    let show = true;
     
-    switch (filterValue) {
+    const matchesSearch = searchQuery === '' || name.includes(searchQuery);
+    
+    let matchesFilter = true;
+    switch (availabilityFilter) {
       case 'available':
-        show = free > 0;
+        matchesFilter = free > 0;
         break;
       case 'full':
-        show = occupancyPercentage >= 90;
+        matchesFilter = occupancyPercentage >= 90;
         break;
       case 'empty':
-        show = occupancyPercentage < 50;
+        matchesFilter = occupancyPercentage < 50;
         break;
       default:
-        show = true;
+        matchesFilter = true;
     }
     
-    if (show) {
+    if (matchesSearch && matchesFilter) {
       if (!map.hasLayer(marker)) marker.addTo(map);
     } else {
       if (map.hasLayer(marker)) map.removeLayer(marker);
