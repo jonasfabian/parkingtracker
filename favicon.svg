@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev/svgjs" width="64" height="64"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Blue rounded square background -->
+  <rect x="4" y="4" width="56" height="56" rx="12" ry="12" fill="#4285F4"></rect>
+  
+  <!-- White P letter with centered gap -->
+  <path d="M23 16v32h7v-12h6c5.5 0 10-3 10-10s-4.5-10-10-10H23zm7 6h6c2.5 0 4 1.5 4 4s-1.5 4-4 4h-6v-8z" fill="white"></path>
+</svg><style>@media (prefers-color-scheme: light) { :root { filter: none; } }
+@media (prefers-color-scheme: dark) { :root { filter: none; } }
+</style></svg>
